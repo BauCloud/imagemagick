@@ -1,8 +1,8 @@
 #
 # Cookbook Name:: imagemagick
-# Recipe:: default
+# Attributes:: default
 #
-# Copyright 2009, Opscode, Inc.
+# Copyright 2013, BauCloud.com (Tobias L. Maier <tobias.maier@baucloud.com>)
 #
 # Licensed under the Apache License, Version 2.0 (the "License");
 # you may not use this file except in compliance with the License.
@@ -17,7 +17,4 @@
 # limitations under the License.
 #
 
-case node['imagemagick']['install_type']
-when "package"
-  include_recipe "imagemagick::package"
-end
+default['imagemagick']['install_type'] = 'package'

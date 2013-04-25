@@ -1,6 +1,6 @@
 #
 # Cookbook Name:: imagemagick
-# Recipe:: default
+# Recipe:: package
 #
 # Copyright 2009, Opscode, Inc.
 #
@@ -17,7 +17,9 @@
 # limitations under the License.
 #
 
-case node['imagemagick']['install_type']
-when "package"
-  include_recipe "imagemagick::package"
+case node['platform_family']
+when 'rhel'
+  package 'ImageMagick'
+when 'debian', 'mac_os_x'
+  package 'imagemagick'
 end

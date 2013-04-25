@@ -3,6 +3,8 @@ Description
 
 Installs ImageMagick and optionally Rmagick (RubyGem).
 
+It can eather install the package distributed with the operating system or compile it from source.
+
 Requirements
 ============
 
@@ -29,6 +31,15 @@ To install the RubyGem rmagick,
   include_recipe "imagemagick::rmagick"
 
 Which will install imagemagick, as well as the development libraries for imagemagick (so rmagick can be built).
+
+Attributes
+==========
+
+* `node['imagemagick']['install_type']` defaults to `package`. Set to `source` to compile it from source
+* `node['imagemagick']['version']` sets the version to install.
+  When not set, it will fall back to the latest.
+  Please note: The latest package is listed at http://www.imagemagick.org/download/ whereas the one you can specify by `version` are at http://www.imagemagick.org/download/legacy/
+* `node['imagemagick']['checksum']` to validate downloaded package
 
 License and Author
 ==================

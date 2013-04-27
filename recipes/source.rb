@@ -59,6 +59,7 @@ execute "imagemagick-extract-source" do
   only_if do File.exist?(src_filepath) end
   action :run
   notifies :run, "execute[configure-imagemagick]", :immediately
+  not_if "convert --version | grep #{node['imagemagick']['version']}"
 end
 
 remote_file src_filepath do
@@ -67,4 +68,6 @@ remote_file src_filepath do
   mode 0644
   checksum node['imagemagick']['checksum']
   notifies :run, "execute[imagemagick-extract-source]", :immediately
+  not_if { ::File.exists?(src_filepath) }
+  not_if "convert --version | grep #{node['imagemagick']['version']}"
 end

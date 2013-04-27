@@ -20,15 +20,21 @@ Usage
 
 To install just ImageMagick,
 
-  include_recipe "imagemagick"
+```ruby
+include_recipe "imagemagick"
+```
 
 In your own recipe/cookbook. To install the development libraries,
 
-  include_recipe "imagemagick::devel"
+```ruby
+include_recipe "imagemagick::devel"
+```
 
 To install the RubyGem rmagick,
 
-  include_recipe "imagemagick::rmagick"
+```ruby
+include_recipe "imagemagick::rmagick"
+```
 
 Which will install imagemagick, as well as the development libraries for imagemagick (so rmagick can be built).
 

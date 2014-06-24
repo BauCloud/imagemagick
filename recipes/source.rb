@@ -19,8 +19,22 @@
 
 include_recipe 'build-essential::default'
 
-%w(libpng12-dev libglib2.0-dev libfontconfig1-dev zlib1g-dev libtiff4-dev libexif-dev libfreetype6-dev).each do |pkg|
-  package pkg
+
+case node['platform_family']
+when 'rhel'
+  # ToDo: What packages are necessary for this platform?
+when 'debian'
+  %w(
+    libpng12-dev
+    libglib2.0-dev
+    libfontconfig1-dev
+    zlib1g-dev
+    libtiff4-dev
+    libexif-dev
+    libfreetype6-dev
+  ).each do |pkg|
+    package pkg
+  end
 end
 
 basename = node['imagemagick']['version'].nil? ? "ImageMagick" : "ImageMagick-#{node['imagemagick']['version']}"

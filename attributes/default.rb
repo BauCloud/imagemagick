@@ -17,6 +17,5 @@
 # limitations under the License.
 #
 
-default['imagemagick']['install_type'] = 'package'
 default['imagemagick']['version'] = nil
 default['imagemagick']['checksum'] = nil

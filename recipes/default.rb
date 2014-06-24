@@ -17,9 +17,4 @@
 # limitations under the License.
 #
 
-case node['imagemagick']['install_type']
-when "package"
-  include_recipe "imagemagick::package"
-when "source"
-  include_recipe "imagemagick::source"
-end
+include_recipe 'imagemagick::package'

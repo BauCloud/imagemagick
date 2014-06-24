@@ -21,7 +21,22 @@ Usage
 To install just ImageMagick,
 
 ```ruby
-include_recipe "imagemagick"
+include_recipe 'imagemagick'
+```
+
+You can also decide on the install type.
+
+With the following you **install from the package**.
+This is also the default behaviour of `include_recipe 'imagemagick'`.
+
+```ruby
+include_recipe 'imagemagick::package'
+```
+
+Use the following package if you want to **compile from source**:
+
+```ruby
+include_recipe 'imagemagick::source'
 ```
 
 In your own recipe/cookbook. To install the development libraries,
@@ -41,7 +56,6 @@ Which will install imagemagick, as well as the development libraries for imagema
 Attributes
 ==========
 
-* `node['imagemagick']['install_type']` defaults to `package`. Set to `source` to compile it from source
 * `node['imagemagick']['version']` sets the version to install.
   When not set, it will fall back to the latest.
   Please note: The latest package is listed at http://www.imagemagick.org/download/ whereas the one you can specify by `version` are at http://www.imagemagick.org/download/legacy/

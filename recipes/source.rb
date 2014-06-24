@@ -55,7 +55,7 @@ end
 
 execute "imagemagick-extract-source" do
   command "tar -xjf #{src_filepath} --strip-components 1 -C #{src_extractpath}"
-  creates "#{src_filepath}/COPYING"
+  creates "#{src_extractpath}/COPYING"
   only_if do File.exist?(src_filepath) end
   action :run
   notifies :run, "execute[configure-imagemagick]", :immediately

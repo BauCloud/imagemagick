@@ -17,7 +17,7 @@
 # limitations under the License.
 #
 
-include_recipe 'build-essential'
+include_recipe 'build-essential::default'
 
 %w(libpng12-dev libglib2.0-dev libfontconfig1-dev zlib1g-dev libtiff4-dev libexif-dev libfreetype6-dev).each do |pkg|
   package pkg

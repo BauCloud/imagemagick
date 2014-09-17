@@ -19,3 +19,6 @@
 
 default['imagemagick']['version'] = nil
 default['imagemagick']['checksum'] = nil
+default['imagemagick']['source'] = {}
+default['imagemagick']['source']['url'] = 'http://www.imagemagick.org/download/'
+default['imagemagick']['source']['version_path'] = 'legacy/'

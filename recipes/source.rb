@@ -77,8 +77,8 @@ execute "imagemagick-extract-source" do
 end
 
 remote_file src_filepath do
-  path = node['imagemagick']['version'].nil? ? src_filename : "legacy/#{src_filename}"
-  source "http://www.imagemagick.org/download/#{path}"
+  path = node['imagemagick']['version'] ? node['imagemagick']['source']['version_path'] : ''
+  source File.join(node['imagemagick']['source']['url'], path, src_filename)
   mode 0644
   checksum node['imagemagick']['checksum']
   notifies :run, "execute[imagemagick-extract-source]", :immediately
